@@ -29,10 +29,12 @@ public partial class FormPrincipal : Form
         {
             camion.CargarVehiculo(auto);
         }
+        #endregion
 
         //muestro lo que hay en  el listbox la darsena  (sector de carga) de la concesionaria
         lbDarsenaConcesionaria.Items.AddRange(lista.ToArray());
         //
+        
     }
 
     private void btnCrearCamion_Click(object sender, EventArgs e)
