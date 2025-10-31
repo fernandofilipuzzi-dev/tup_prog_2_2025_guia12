@@ -13,20 +13,26 @@ public partial class FormPrincipal : Form
 
     private void Form1_Load(object sender, EventArgs e)
     {
+        #region el sistema recibe camiones, asique armo un camion ficticio para iniciarlo con autos  a la concesionaria
+        ///esto se deduce muy bien cuando ven como funciona el recibir camion y descargar camion - botones de la derecha
+
         List<Auto> lista = new List<Auto>
         {
             new Auto(100, "Audi AA"),
             new Auto(101, "Audi AA")
         };
-        //muestro lo que hay en la darsena
-        lbDarsenaConcesionaria.Items.AddRange(lista.ToArray());
-
+        
+        
         Camion camion=new Camion(DateTime.Now,10);
         camion.NroRegisto = sistema.NroOrden;
         foreach (Auto auto in lista)
         {
             camion.CargarVehiculo(auto);
         }
+
+        //muestro lo que hay en  el listbox la darsena  (sector de carga) de la concesionaria
+        lbDarsenaConcesionaria.Items.AddRange(lista.ToArray());
+        //
     }
 
     private void btnCrearCamion_Click(object sender, EventArgs e)
