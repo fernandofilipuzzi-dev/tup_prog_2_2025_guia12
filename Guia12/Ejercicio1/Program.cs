@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Ejercicio1
+namespace Ejercicio1;
+
+static class Program
 {
-    static class Program
+    /// <summary>
+    /// Punto de entrada principal para la aplicación.
+    /// </summary>
+    [STAThread]
+    static void Main()
     {
-        /// <summary>
-        /// Punto de entrada principal para la aplicación.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPrincipal());
-        }
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+        Application.Run(new FormPrincipal());
     }
 }
