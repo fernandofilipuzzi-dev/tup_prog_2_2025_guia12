@@ -6,7 +6,6 @@ public class Sistema
     public int NroOrden
     {
         get
-
         {
             return nro++;
         }
@@ -56,9 +55,7 @@ public class Sistema
         }
         return null;
     }
-
     
-
     public void CerrarCamion(int nro)
     {
         Camion camion = VerCamion(nro);
