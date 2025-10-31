@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             lbDarsenaConcesionaria = new ListBox();
-            button1 = new Button();
+            btnCrearCamion = new Button();
             button2 = new Button();
             button3 = new Button();
             btnCerrarCamion = new Button();
@@ -41,8 +41,8 @@
             saveFileDialog1 = new SaveFileDialog();
             openFileDialog1 = new OpenFileDialog();
             groupBox1 = new GroupBox();
-            groupBox2 = new GroupBox();
             label1 = new Label();
+            groupBox2 = new GroupBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -57,16 +57,16 @@
             lbDarsenaConcesionaria.Size = new Size(194, 256);
             lbDarsenaConcesionaria.TabIndex = 0;
             // 
-            // button1
+            // btnCrearCamion
             // 
-            button1.Location = new Point(226, 63);
-            button1.Margin = new Padding(4);
-            button1.Name = "button1";
-            button1.Size = new Size(107, 63);
-            button1.TabIndex = 1;
-            button1.Text = "Cargar Camion";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += btnCrearCamion_Click;
+            btnCrearCamion.Location = new Point(226, 63);
+            btnCrearCamion.Margin = new Padding(4);
+            btnCrearCamion.Name = "btnCrearCamion";
+            btnCrearCamion.Size = new Size(107, 63);
+            btnCrearCamion.TabIndex = 1;
+            btnCrearCamion.Text = "Crear Camion";
+            btnCrearCamion.UseVisualStyleBackColor = true;
+            btnCrearCamion.Click += btnCrearCamion_Click;
             // 
             // button2
             // 
@@ -159,7 +159,7 @@
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(lbDarsenaConcesionaria);
             groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(btnCrearCamion);
             groupBox1.Controls.Add(dateTimePicker1);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(btnCerrarCamion);
@@ -169,6 +169,15 @@
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
             groupBox1.Text = "Cargas";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(357, 63);
+            label1.Name = "label1";
+            label1.Size = new Size(82, 21);
+            label1.TabIndex = 10;
+            label1.Text = "Capacidad";
             // 
             // groupBox2
             // 
@@ -181,15 +190,6 @@
             groupBox2.TabIndex = 11;
             groupBox2.TabStop = false;
             groupBox2.Text = "Descargas";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(357, 63);
-            label1.Name = "label1";
-            label1.Size = new Size(82, 21);
-            label1.TabIndex = 10;
-            label1.Text = "Capacidad";
             // 
             // FormPrincipal
             // 
@@ -214,7 +214,7 @@
         #endregion
 
         private ListBox lbDarsenaConcesionaria;
-        private Button button1;
+        private Button btnCrearCamion;
         private Button button2;
         private Button button3;
         private Button btnCerrarCamion;

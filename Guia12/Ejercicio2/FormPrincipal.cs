@@ -73,7 +73,6 @@ public partial class FormPrincipal : Form
         sistema.CerrarCamion(nro);
     }
 
-
     private void btnRecibirCamion_Click(object sender, EventArgs e)
     {
 
@@ -85,7 +84,6 @@ public partial class FormPrincipal : Form
             StreamReader sr = null;
             try
             {
-
                 fs = new FileStream(path, FileMode.Open, FileAccess.Read);
                 sr = new StreamReader(fs);
 
@@ -110,8 +108,7 @@ public partial class FormPrincipal : Form
 
                 //acá recien se cuantos autos tengo , ahi puedo cargar el camion
                 Camion camion = new Camion(DateTime.Now, lbItinerarioCamion.Items.Count);
-                
-                
+                                
                 sistema.RecibirCamion(camion);
 
                 //antes debo registrarlo , porque el sistema le tiene que dar un nro de registro
