@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ejercicio2.Models;
+﻿namespace Ejercicio2.Models;
 
 public  class Auto
 {
@@ -26,6 +20,6 @@ public  class Auto
 
     override public string ToString()
     {
-        return $"{modelo};{numeroRegistro}";
+        return $"{numeroRegistro};{modelo}";
     }
 }

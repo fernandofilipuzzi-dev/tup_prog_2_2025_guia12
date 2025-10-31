@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace Ejercicio2.Models;
+﻿namespace Ejercicio2.Models;
 
 public class Sistema
 {
-    public int NroOrden { get; set; }
+    int nro = 1;
+    public int NroOrden
+    {
+        get
 
-    List<Camion> listaCamiones = new List<Camion> ();
+        {
+            return nro++;
+        }
+    }
+
+    List<Camion> listaCamiones = new List<Camion>();
     List<Auto> listaAutos = new List<Auto>();
 
     public int GenerarCamion(DateTime fecha, int capacidad)
@@ -21,14 +22,25 @@ public class Sistema
         nuevo.NroRegisto = NroOrden;
         return nuevo.NroRegisto;
     }
+
+    public void CargarCamion(int nroOrden, Auto auto)
+    {
+        Camion buscado = VerCamion(nroOrden);
+
+        if (buscado != null)
+        {
+            buscado.CargarVehiculo(auto);
+            listaAutos.Remove(auto);
+        }
+    }
     public Auto DescargarCamion(int nroOrden)
     {
-        Camion buscado= VerCamion(nroOrden);
+        Camion buscado = VerCamion(nroOrden);
 
         Auto retirado = null;
-        if(buscado!=null)
-        { 
-            retirado= buscado.RetirarAuto();
+        if (buscado != null)
+        {
+            retirado = buscado.RetirarAuto();
             listaAutos.Add(retirado);
         }
 
@@ -38,19 +50,16 @@ public class Sistema
     public Camion VerCamion(int numero)
     {
         for (int n = 0; n < listaCamiones.Count; n++)
-        { 
+        {
             if (listaCamiones[n].NroRegisto == numero)
                 return listaCamiones[n];
         }
         return null;
     }
 
-    public void CargarCamion(int nro, Auto selected)
-    {
-        throw new NotImplementedException();
-    }
+    
 
-   public void CerrarCamion(int nro)
+    public void CerrarCamion(int nro)
     {
         Camion camion = VerCamion(nro);
         if (camion != null)
@@ -69,11 +78,11 @@ public class Sistema
                     fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
                     sw = new StreamWriter(fs);
 
+                    sw.WriteLine("NroRegistro;Modelo");
                     foreach (string linea in camion.VerCarga())
                     {
                         sw.WriteLine(linea);
                     }
-                    ;
                 }
                 catch (Exception ex)
                 {
@@ -85,5 +94,11 @@ public class Sistema
                 }
             }
         }
+    }
+
+    public void RecibirCamion(Camion camion)
+    {
+        listaCamiones.Add(camion);
+        camion.NroRegisto = NroOrden;
     }
 }
