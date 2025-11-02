@@ -92,6 +92,7 @@ public partial class FormPrincipal : Form
                 sr.ReadLine();//descartar cabecera
                 while (sr.EndOfStream == false)
                 {
+                    #region parsing
                     string linea = sr.ReadLine();
 
                     string[] campos = linea.Split(';');
@@ -99,6 +100,7 @@ public partial class FormPrincipal : Form
                     int nro = Convert.ToInt32(campos[0]);
                     string modelo = campos[1];
                     double precio = Convert.ToDouble(campos[2]);
+                    #endregion
 
                     Auto nuevo = new Auto(nro, modelo);
                     nuevo.Precio = precio;
