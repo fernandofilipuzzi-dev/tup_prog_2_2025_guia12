@@ -21,9 +21,9 @@ public partial class FormPrincipal : Form
             new Auto(100, "Audi AA"),
             new Auto(101, "Audi AA")
         };
-        
-        
-        Camion camion=new Camion(DateTime.Now,10);
+
+
+        Camion camion = new Camion(DateTime.Now, 10);
         camion.NroRegisto = sistema.NroOrden;
         foreach (Auto auto in lista)
         {
@@ -34,7 +34,7 @@ public partial class FormPrincipal : Form
         //muestro lo que hay en  el listbox la darsena  (sector de carga) de la concesionaria
         lbDarsenaConcesionaria.Items.AddRange(lista.ToArray());
         //
-        
+
     }
 
     private void btnCrearCamion_Click(object sender, EventArgs e)
@@ -110,7 +110,7 @@ public partial class FormPrincipal : Form
 
                 //acá recien se cuantos autos tengo , ahi puedo cargar el camion
                 Camion camion = new Camion(DateTime.Now, lbItinerarioCamion.Items.Count);
-                                
+
                 sistema.RecibirCamion(camion);
 
                 //antes debo registrarlo , porque el sistema le tiene que dar un nro de registro
@@ -136,17 +136,17 @@ public partial class FormPrincipal : Form
 
     private void btnDescargarCamionRecibido_Click(object sender, EventArgs e)
     {
-        if (nro>0)
-        { 
-            
-           Auto auto= sistema.DescargarCamion(nro);//el primero
+        if (nro > 0)
+        {
+
+            Auto auto = sistema.DescargarCamion(nro);//el primero
             while (auto != null)//hasta que no me devuelva mas auto
             {
                 lbDarsenaConcesionaria.Items.Add(auto);  //se ven en la darsena 
                 lbItinerarioCamion.Items.Remove(auto);//ya no esta en el camion
 
                 auto = sistema.DescargarCamion(nro);
-                
+
             }
 
         }
